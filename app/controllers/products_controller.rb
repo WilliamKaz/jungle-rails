@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
 
   def index
-    puts '*******************'
+    # puts '*******************'
     puts 'user'
     puts session[:current_user_email]
-    puts '*******************'
+    # puts '*******************'
     @products = Product.all.order(created_at: :desc)
   end
 
