@@ -13,9 +13,16 @@ Rails.application.routes.draw do
   resources :orders, only: [:create, :show]
 
   resources :users, only: [:new, :create]
-  get 'users/login' => 'users#login_page'
-  post 'users/login' =>'users#login'
-  delete 'users/logout' =>'users#logout'
+  # get 'users/login' => 'users#login_page'
+  # post 'users/login' =>'users#login'
+  # delete 'users/logout' =>'users#logout'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
 
   namespace :admin do
     root to: 'dashboard#show'

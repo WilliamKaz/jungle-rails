@@ -27,11 +27,15 @@
         </li>
         <!-- register -->
         <li> <%=link_to 'Register',  :new_user %></li>
-        <!-- login -->
-        <li> <%=link_to 'Login',  :users_login %></li>
 
+        <%if !current_user %>
+        <!-- login -->
+        <li> <%=link_to 'Login',  :login %></li>
+        <% else %>
         <!-- logout -->
-        <li> <%=link_to 'Logout',  :users_logout, method: "delete" %></li>
+        <li><%= current_user.email %> </li>
+        <li> <%= link_to 'Logout', :logout %> </li>
+        <% end %>
 
       </ul>
       <ul class="nav navbar-nav navbar-right">

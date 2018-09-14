@@ -1,0 +1,2 @@
+class DropTsController < ApplicationController
+end
